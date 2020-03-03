@@ -118,8 +118,9 @@
                     </div>
                 </div>
             </div>
-            @include('layout.footer')
+            
         </div>
+        @include('layout.footer')
     </div>
 
     <script src="{{asset('admin/assets/plugins/jquery/jquery.min.js')}}"></script>

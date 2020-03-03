@@ -3,152 +3,125 @@
 <div class="container-fluid">
     <div class="row page-titles">
         <div class="col-md-6 col-8 align-self-center">
-            <h3 class="text-themecolor m-b-0 m-t-0">Các dự án</h3>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item">Các dự án</li>
+                <li class="breadcrumb-item">Dự án</li>
             </ol>
         </div>
     </div>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#addtab">Thêm mới</a>
+            <a class="nav-link" id="tab1" data-toggle="tab" href="#listtab">Danh sách dự án</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#listtab">Danh sách các dự án</a>
+            <a class="nav-link" id="tab2" data-toggle="tab" href="#addtab">@if(empty($SupplierInfo))Thêm mới @else Cập nhật @endif</a>
         </li>
     </ul>
     <div class="tab-content">
-        <div id="addtab" class="tab-pane fade"><br>
+        <div id="listtab" class="tab-pane tab1"><br>
             <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-block">
-                            <h4 class="card-title">Thêm các dự án</h4>
-                            <form action="" method="post" enctype="multipart/form-data">
-                                <input name="_token" value="zXwnTfILpeLyKZacB4xpaGdjcoIloqEurPreUYiR" type="hidden">
-                                <div class="form-group">
-                                    <label for="name">Tên dự án</label>
-                                    <input type="text" id="name" name="name" class="form-control">
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="name">Ngày bắt đầu</label>
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input readonly type="text" class="form-control pull-right datepicker">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="name">Ngày kết thúc</label>
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input readonly type="text" class="form-control pull-right datepicker">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="name">Ưu tiên</label>
-                                        <select class="form-control">
-                                            <option value="">Ưu tiên nhất</option>
-                                            <option value="">Ưu tiên nhì</option>
-                                            <option value="">Ưu tiên ba</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="name">Trạng thái</label>
-                                        <select class="form-control">
-                                            <option value="">đã duyệt</option>
-                                            <option value="">chưa duyệt</option>
-                                            <option value="">đã xem</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Ghi chú</label>
-                                    <textarea class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-sm-12 padding-unset">
-                                        <button class="btn btn-success">Thêm</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="listtab" class="tab-pane active"><br>
-            <div class="row">
+                {{-- <code>Nội dung ở button Dichvu/HangHoa e tham khao form ở mục NCC/Danh Muc Hàng Hóa và NCC/Danh Mục dịch vụ</code> --}}
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-block">
-                            <h4 class="card-title dp-inline-block">Danh sách các dự án</h4>
-                            <div class="table-responsive">
+                            <div class="table-responsive-lg">
                                 <table class="table" id="dataTable">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Tên dự án</th>
-                                            <th>Ưu tiên</th>
-                                            <th>Người tạo</th>
-                                            <th>Trạng thái</th>
-                                            <th>Ngày tạo</th>
+                                            <th>Hạn</th>
+                                            <th>Trạng Thái</th>
                                             <th>Tùy chỉnh</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Dự án 1</td>
-                                            <td>Ưu tiên nhất</td>
-                                            <td>Xuân Hiếu</td>
-                                            <td>Đã duyệt</td>
-                                            <td>{{date('d-m-Y',time())}}</td>
-                                            <td>
-                                                <a class="btn bg-purple" style="color: white" href="{{route('projectnoteview')}}">Ghi chú</a>
-                                                <a class="btn bg-success" style="color: white" href="{{route('projecttaskview')}}">Công việc</a>
-                                                <a class="btn bg-info" style="color: white" href="{{route('gantttview')}}">Gantt</a>
-                                                <a class="btn bg-danger" style="color: white" href="">Xóa</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Dự án 2</td>
-                                            <td>Ưu tiên nhì</td>
-                                            <td>Xuân Hiếu</td>
-                                            <td>Chưa duyệt</td>
-                                            <td>{{date('d-m-Y',time())}}</td>
-                                            <td>
-                                                <a class="btn bg-purple" style="color: white" href="{{route('projectnoteview')}}">Ghi chú</a>
-                                                <a class="btn bg-success" style="color: white" href="{{route('projecttaskview')}}">Công việc</a>
-                                                <a class="btn bg-info" style="color: white" href="{{route('gantttview')}}">Gantt</a>
-                                                <a class="btn bg-danger" style="color: white" href="">Xóa</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Dự án 3</td>
-                                            <td>Ưu tiên ba</td>
-                                            <td>Xuân Hiếu</td>
-                                            <td>Đã Xem</td>
-                                            <td>{{date('d-m-Y',time())}}</td>
-                                            <td>
-                                                <a class="btn bg-purple" style="color: white" href="{{route('projectnoteview')}}">Ghi chú</a>
-                                                <a class="btn bg-success" style="color: white" href="{{route('projecttaskview')}}">Công việc</a>
-                                                <a class="btn bg-info" style="color: white" href="{{route('gantttview')}}">Gantt</a>
-                                                <a class="btn bg-danger" style="color: white" href="">Xóa</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="addtab" class="tab-pane tab2"><br>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-block">
+                            @include('layout.validate_error')
+                            <form action="@if(!empty($SupplierInfo)){{route('editsupplier', $SupplierInfo->id)}}@else{{route('addprojectaction')}}@endif" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <div class="row">
+                                    <div class="form-group col-md-8 @if($errors->has('name'))has_error @endif">
+                                        <label for="name">Tên dự án</label>
+                                        <input value="@if(!empty($SupplierInfo)){{$SupplierInfo->name}}@else{{old('name')}}@endif" type="text" id="name" name="name" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4 @if($errors->has('code'))has_error @endif">
+                                        <label for="code">Code</label>
+                                        <input type="text" value="@if(!empty($SupplierInfo)){{$SupplierInfo->code}}@else{{old('code')}}@endif" id="code" name="code" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4 @if($errors->has('item_group_id'))has_error @endif">
+                                        <label for="item_group_id">Biểu mẫu hạn mục</label>
+                                        <select name="item_group_id" id="item_group_id" class="form-control">
+                                             @foreach($ListItemGroups as $row)
+                                            <option @if(!empty($SupplierInfo) && $row->id == $SupplierInfo->supplier_category_id) selected @elseif(old('supplier_category_id') == $row->id) selected @endif value="{{$row->id}}">{{$row->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4 @if($errors->has('task_group_id'))has_error @endif">
+                                        <label for="task_group_id">Biểu mẫu công việc</label>
+                                        <select name="task_group_id" id="task_group_id" class="form-control">
+                                            @foreach($ListTaskGroups as $row)
+                                            <option @if(!empty($SupplierInfo) && $row->id == $SupplierInfo->supplier_category_id) selected @elseif(old('supplier_category_id') == $row->id) selected @endif value="{{$row->id}}">{{$row->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                     <div class="form-group col-md-4 @if($errors->has('status'))has_error @endif">
+                                        <label for="status">Trạng thái duyệt</label>
+                                        <select name="status" id="status" class="form-control">
+                                            <option @if(!empty($SupplierInfo) && 0 == $SupplierInfo->status) selected @elseif(old('status') == 0) selected @endif value="0">Hoạt động</option>
+                                            <option @if(!empty($SupplierInfo) && 1 == $SupplierInfo->status) selected @elseif(old('status') == 1) selected @endif value="1">Ngừng hoạt động</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-8 @if($errors->has('stackholder'))has_error @endif">
+                                        <label for="stackholder">Stackholder</label>
+                                        <input value="@if(!empty($SupplierInfo)){{$SupplierInfo->stackholder}}@else{{old('stackholder')}}@endif" type="text" id="stackholder" name="stackholder" class="form-control">
+                                    </div>
+                                    <div class="form-group col-md-4 @if($errors->has('attact_file'))has_error @endif">
+                                        <label for="attact_file">Chi tiết</label>
+                                        <div class="input-group date">
+                                            <input type="file" id="attact_file" name="attact_file" class="form-control">
+                                        </div>
+                                        @if(!empty($ItemSupplierInfo->attact_file))
+                                        <a href="{{route('downloadattachfile', $ItemSupplierInfo->attact_file)}}" target="blank">{{$ItemSupplierInfo->attact_file}}</a>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group @if($errors->has('in_range'))has_error @endif">
+                                    <label for="in_range">Trong phạm vi</label>
+                                    <textarea name="in_range" id="in_range" class="form-control">@if(!empty($SupplierInfo)){{$SupplierInfo->in_range}}@else{{old('in_range')}}@endif</textarea>
+                                </div>
+                                <div class="form-group @if($errors->has('out_range'))has_error @endif">
+                                    <label for="out_range">Ngoài phạm vi</label>
+                                    <textarea name="out_range" id="out_range" class="form-control">@if(!empty($SupplierInfo)){{$SupplierInfo->out_range}}@else{{old('out_range')}}@endif</textarea>
+                                </div>
+                                <div class="form-group @if($errors->has('remark'))has_error @endif">
+                                    <label for="remark">Ghi chú</label>
+                                    <textarea name="remark" id="remark" class="form-control">@if(!empty($SupplierInfo)){{$SupplierInfo->remark}}@else{{old('remark')}}@endif</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 padding-unset">
+                                        @if(empty($SupplierInfo))
+                                        <button class="btn btn-success">Thêm</button>
+                                        @else
+                                        <button class="btn btn-info">Cập nhật</button>
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -161,15 +134,30 @@
 @push('custom-css')
 <link rel="stylesheet" href="{{asset('admin/assets/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/css/bootstrap-datepicker.min.css')}}">
+<link rel="stylesheet" href="{{asset('admin/css/select2.min.css')}}">
 @endpush
 @push('custom-scripts')
 {{-- Jquery Data table --}}
 <script type="text/javascript"  src="{{asset('admin/assets/plugins/datatables.net/js/jquery.dataTables.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('admin/assets/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-<script type="text/javascript"  src="{{asset('admin/js/bootstrap-datepicker.min.js')}}"></script>
+<script type="text/javascript"  src="{{asset('admin/js/select2.full.min.js')}}"></script>
 <script type="text/javascript">
-    $('.datepicker').datepicker({
-      autoclose: true
+    $(function(){
+        $('.init_select2').select2();
+        $('#dataTable').DataTable({
+            processing: true,
+            serverSide: false,
+            ajax: '{!! route('projectlist') !!}',
+            columns: [
+                { data: 'stt', name: 'stt' },
+                { data: 'name', name: 'name' },
+                { data: 'code', name: 'code' },
+                { data: 'status', name: 'status' },
+                { data: 'action', name: 'action' },
+            ]
+        });
+        @include('layout.alert',['SessionResult' => session()->get('result')])
     })
+    @include('layout.tab_active',['SessionResult' => session()->get('result')])
 </script>
 @endpush

@@ -13,7 +13,10 @@
                             <a href="{{ route('scmitem') }}" class="waves-effect active">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Hạng mục</a>
                         </li>
                         <li>
-                            <a href="{{ route('scmitem') }}" class="waves-effect active">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Yêu cầu mua</a>
+                            <a href="{{ route('requestform') }}" class="waves-effect active">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Yêu cầu mua</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('selectsupplierview') }}" class="waves-effect active">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Chọn NCC</a>
                         </li>
                         <li>
                             <a href="{{ route('scmservice') }}" class="waves-effect active">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Danh sách dịch vụ</a>

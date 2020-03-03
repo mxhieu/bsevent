@@ -37,6 +37,21 @@ Route::group(['prefix' => 'supplier','namespace' => 'supplier'], function(){
 		});
 	});
 
+	Route::group(['prefix' => 'requestform','namespace' => 'requestform'], function(){
+		Route::get('listdata','RequestFormList')->name('requestformlist');
+		Route::match(['get','post'],'list/{id?}','RequestFormView')->name('requestform');
+		Route::post('addrequestform','AddRequestFormAction')->name('addrequestformaction');
+		Route::post('editrequestform/{id}','EditRequestForm')->name('editrequestform');
+		Route::get('approve/{id}','ApproveRequestForm')->name('approverequestform');
+		Route::get('delete/{id}','DeleteRequestForm')->name('deleterequestform');
+		// Route::match(['get','post'],'item','SCMRequestFormItem')->name('requestformitem');
+	});
+
+	Route::group(['prefix' => 'selectsupplier','namespace' => 'selectsupplier'], function(){
+		Route::get('','SelectSupplierView')->name('selectsupplierview');
+
+	});
+
 	Route::group(['prefix' => 'scmitem','namespace' => 'scmitem'], function(){
 		Route::get('listscmitem','SCMItemList')->name('listscmitem');
 		Route::get('/{itemId?}','SCMItemView')->name('scmitem');
@@ -49,11 +64,7 @@ Route::group(['prefix' => 'supplier','namespace' => 'supplier'], function(){
 		Route::match(['get','post'],'','SCMService')->name('scmservice');
 	});
 
-	Route::group(['prefix' => 'requestform'], function(){
-		Route::match(['get','post'],'','SCMRequestForm')->name('requestform');
-		Route::match(['get','post'],'item','SCMRequestFormItem')->name('requestformitem');
-	});
-
+	
 	Route::group(['prefix' => 'purchaselist'], function(){
 		Route::match(['get','post'],'','SCMPurchaseList')->name('purchaselist');
 		Route::match(['get','post'],'item','SCMPurchaseItem')->name('purchaseitem');
@@ -126,7 +137,9 @@ Route::group(['prefix' => 'customer', 'namespace' => 'customer'], function(){
 });
 
 Route::group(['prefix' => 'project', 'namespace' => 'project'], function(){
+	Route::get('list','ProjectList')->name('projectlist');
 	Route::match(['get','post'],'','ProjectView')->name('projectview');
+	Route::post('add','AddProjectAction')->name('addprojectaction');
 	Route::match(['get','post'],'gantt','GanttChartView')->name('gantttview');
 	Route::group(['prefix' => 'note',], function(){
 		Route::match(['get','post'],'','ProjectNoteView')->name('projectnoteview');

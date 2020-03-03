@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\supplier;
+namespace App\Http\Controllers\supplier\selectsupplier;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\BaseAdminController as BaseAdminController;
 
-class SCMRequestForm extends BaseAdminController
+class SelectSupplierView extends BaseAdminController
 {
     public function __construct(){
     	parent::__construct();
@@ -14,6 +14,6 @@ class SCMRequestForm extends BaseAdminController
 
     public function __invoke(Request $request)
     {
-        return view('supplier.requestform.index');
+        return view('supplier.selectsupplier.index');
     }
 }

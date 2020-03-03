@@ -16,11 +16,10 @@ class ItemGroupView extends BaseAdminController
 
     public function __invoke($departmentId)
     {
-        dd('dsadsa');
         $departmentInfo = $this->Department->find($departmentId);
         $data = [
             'departmentInfo' => $departmentInfo
         ];
-        return view('config.department.itemgroup.index',$data);
+        return view('config.department.itemgroup.index', $data);
     }
 }

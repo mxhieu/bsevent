@@ -29,12 +29,13 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Tên phiếu</th>
-                                            <th>Mã phiếu</th>
+                                            <th>Phiếu yêu cầu</th>
+                                            <th>Mã</th>
                                             <th>Dự Án</th>
                                             <th>Hạn mua</th>
-                                            <th>Người lập</th>
-                                            <th>Trạng Thái</th>
+                                            <th>Duyệt phiếu</th>
+                                            <th>Số hạng mục</th>
+                                            <th>Số đáp ứng</th>
                                             <th>Tùy chỉnh</th>
                                         </tr>
                                     </thead>
@@ -66,11 +67,11 @@
                                 <div class="row">
                                     <div class="form-group col-md-3 @if($errors->has('project_id'))has_error @endif">
                                         <label for="project_id">Dự án</label>
-                                        <select name="project_id" id="project_id" class="form-control">
+                                        {{-- <select name="project_id" id="project_id" class="form-control">
                                             @foreach($listProject as $row)
                                             <option @if(!empty($requestformInfo) && $row->id == $requestformInfo->project_id ) selected @elseif(old('project_id ') == $row->id) selected @endif value="{{$row->id}}">{{$row->name}}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                     </div>
                                     <div class="form-group col-md-3 @if($errors->has('deadline'))has_error @endif">
                                         <label for="deadline">Hạn mua</label>
@@ -83,18 +84,18 @@
                                     </div>
                                     <div class="form-group col-md-3 @if($errors->has('employee_id'))has_error @endif">
                                         <label for="employee_id">Người Duyệt</label>
-                                        <select name="employee_id" id="employee_id" class="form-control">
+                                        {{-- <select name="employee_id" id="employee_id" class="form-control">
                                             @foreach($listEmployee as $row)
                                             <option @if(!empty($requestformInfo) && $row->id == $requestformInfo->supplier_category_id) selected @elseif(old('supplier_category_id') == $row->id) selected @endif value="{{$row->id}}">{{$row->name}}</option>
                                             @endforeach
-                                        </select>
+                                        </select> --}}
                                     </div>
                                     <div class="form-group col-md-3 @if($errors->has('status'))has_error @endif">
                                         <label for="status">Trạng thái</label>
-                                        <select name="status" id="status" class="form-control">
+                                        {{-- <select name="status" id="status" class="form-control">
                                             <option @if(!empty($requestformInfo) && 0 == $requestformInfo->status) selected @elseif(old('status') == 0) selected @endif value="0">Hoạt động</option>
                                             <option @if(!empty($requestformInfo) && 1 == $requestformInfo->status) selected @elseif(old('status') == 1) selected @endif value="1">Ngừng hoạt động</option>
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                                 <div class="form-group @if($errors->has('remark'))has_error @endif">
